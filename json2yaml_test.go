@@ -66,7 +66,7 @@ func TestJsonBuilderType(t *testing.T) {
 	assert.Equal(t, reflect.Float64, reflect.TypeOf(jsonBuilder.Get("aa").(map[string]interface{})["dd"]).Kind())
 	assert.Equal(t, reflect.String, reflect.TypeOf(jsonBuilder.Get("cc")).Kind())
 	assert.Equal(t, reflect.Slice, reflect.TypeOf(jsonBuilder.Get("kk").(map[string]interface{})["arr"]).Kind())
-
+	assert.Equal(t, reflect.Map, jsonBuilder.GetElementType("kk"))
 	t.Log(jsonBuilder.MarshalPretty())
 }
 

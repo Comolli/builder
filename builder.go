@@ -263,3 +263,10 @@ func (h *Helper) GetDepth() int {
 func (h *Helper) SaveFile(fileName string, data []byte) error {
 	return ioutil.WriteFile(fileName, data, 0644)
 }
+
+func (h *Helper) GetElementType(v interface{}) reflect.Kind {
+	if h.Objects != nil {
+		return reflect.TypeOf(h.Objects[v.(string)]).Kind()
+	}
+	return reflect.TypeOf(h.ObjectsArr[v.(int)]).Kind()
+}
